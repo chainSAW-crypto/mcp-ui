@@ -13,7 +13,11 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": "./",
+    "paths": {
+      "agents/*": ["src/agents/*"]
+    }
   },
   "include": [
     "worker-configuration.d.ts",

@@ -4,19 +4,22 @@ import { z } from 'zod';
 import { createRequestHandler } from 'react-router';
 import { createHtmlResource } from '@mcp-ui/server';
 
+
 declare module 'react-router' {
   export interface AppLoadContext {
     cloudflare: {
-      env: CloudflareEnvironment;
+      env: Env;
       ctx: ExecutionContext;
     };
   }
 }
 
+const MODE = process.env.NODE_ENV || 'production';
 const requestHandler = createRequestHandler(
-  () => import('virtual:react-router/server-build'),
-  import.meta.env.MODE,
+  () => import('virtual:react-router/server-build' as any),
+  MODE,
 );
+
 
 // Define our MCP agent with tools
 export class MyMCP extends McpAgent {
@@ -155,7 +158,7 @@ export class MyMCP extends McpAgent {
 
         // Generate a unique URI for this specific invocation of the file picker UI.
         // This URI identifies the resource block itself, not the content of the iframe.
-        const uniqueUiAppUri = `ui://task-manager/${Date.now()}`;
+        const uniqueUiAppUri: `ui://${string}` = `ui://task-manager/${Date.now()}`;
         const resourceBlock = createHtmlResource({
           uri: uniqueUiAppUri,
           content: { type: 'externalUrl', iframeUrl: pickerPageUrl },
@@ -181,7 +184,7 @@ export class MyMCP extends McpAgent {
 
         // Generate a unique URI for this specific invocation of the file picker UI.
         // This URI identifies the resource block itself, not the content of the iframe.
-        const uniqueUiAppUri = `ui://user-profile/${Date.now()}`;
+        const uniqueUiAppUri: `ui://${string}` = `ui://user-profile/${Date.now()}`;
         const resourceBlock = createHtmlResource({
           uri: uniqueUiAppUri,
           content: { type: 'externalUrl', iframeUrl: pickerPageUrl },

@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@mcp-ui/client':
+        specifier: ^2.4.0
+        version: 2.4.0
+      '@mcp-ui/server':
+        specifier: ^2.4.0
+        version: 2.4.0
     devDependencies:
       '@semantic-release/changelog':
         specifier: ^6.0.3
@@ -770,6 +777,12 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
+
+  '@mcp-ui/client@2.4.0':
+    resolution: {integrity: sha512-jgPIe63MOmDzhFS/jWKASt4NuVfXkZscmMMNseFzgsy4DpaVw+U6QsuI7PmF3JgPogV0nnKtvBC1BT5UyzyZRw==}
+
+  '@mcp-ui/server@2.4.0':
+    resolution: {integrity: sha512-1SagTQ6SKcH+5YJ1asCKOS1e0Ge6eShBsBt2QlWoX/tvdiixqBeHoEYb9/vGrZnXUK5GmjA2HrU66hhXdIuA3Q==}
 
   '@microsoft/api-extractor-model@7.28.13':
     resolution: {integrity: sha512-39v/JyldX4MS9uzHcdfmjjfS6cYGAoXV+io8B5a338pkHiSt+gy2eXQ0Q7cGFJ7quSa1VqqlMdlPrB6sLR/cAw==}
@@ -5697,6 +5710,15 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@mcp-ui/client@2.4.0':
+    dependencies:
+      '@modelcontextprotocol/sdk': 1.11.3
+      react: 18.3.1
+    transitivePeerDependencies:
+      - supports-color
+
+  '@mcp-ui/server@2.4.0': {}
 
   '@microsoft/api-extractor-model@7.28.13(@types/node@18.19.100)':
     dependencies:
